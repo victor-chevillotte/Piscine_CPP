@@ -6,21 +6,18 @@
 #    By: vchevill <vchevill@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 11:38:44 by vchevill          #+#    #+#              #
-#    Updated: 2022/05/06 17:02:11 by vchevill         ###   ########.fr        #
+#    Updated: 2022/05/06 17:02:23 by vchevill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	zombiesHorde
-SRCS	=	srcs/Zombie.cpp srcs/main.cpp
-HEADER  =   includes
+NAME	=	hiBrain
+SRCS	=	main.cpp
 CC		=	c++
 CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 OBJS	=	$(SRCS:.cpp=.o)
 
-LFLAGS  =   -I $(HEADER)
-
-%.o:		%.cpp $(HEADER)/Zombie.h
-	$(CC) $(CFLAGS) $(LFLAGS) -c $< -o $@
+%.o:		%.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all:		$(NAME)
 
