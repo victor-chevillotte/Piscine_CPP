@@ -6,64 +6,64 @@
 /*   By: vchevill <vchevill@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 10:14:58 by vchevill          #+#    #+#             */
-/*   Updated: 2022/05/06 11:40:49 by vchevill         ###   ########.fr       */
+/*   Updated: 2022/05/06 12:27:35 by vchevill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/phonebook.h"
 
-static Contact add_contact(void)
+static Contact addContact(void)
 {
 	Contact contact;
 	std::string inputStr;
 
 	std::cout << "\n ---   ADD CONTACT   ---\n";
-	inputStr[0] = '\0';
-	while (inputStr[0] == '\0')
+	inputStr = "";
+	while (inputStr.compare("") == 0)
 	{
 		std::cout << "First Name: ";
 		getline(std::cin, inputStr);
-		if (inputStr[0] == '\0')
+		if (inputStr.compare("") == 0)
 			std::cout << "Input Can't be empty, please try again\n";
 	}
 	contact.setFirstName(inputStr);
-	inputStr[0] = '\0';
+	inputStr = "";
 
-	while (inputStr[0] == '\0')
+	while (inputStr.compare("") == 0)
 	{
 		std::cout << "Last Name: ";
 		getline(std::cin, inputStr);
-		if (inputStr[0] == '\0')
+		if (inputStr.compare("") == 0)
 			std::cout << "Input Can't be empty, please try again\n";
 	}
 	contact.setLastName(inputStr);
-	inputStr[0] = '\0';
+	inputStr = "";
 
-	while (inputStr[0] == '\0')
+	while (inputStr.compare("") == 0)
 	{
 		std::cout << "Nickname: ";
 		getline(std::cin, inputStr);
-		if (inputStr[0] == '\0')
+		if (inputStr.compare("") == 0)
 			std::cout << "Input Can't be empty, please try again\n";
 	}
 	contact.setNickname(inputStr);
-	inputStr[0] = '\0';
+	inputStr = "";
 
-	while (inputStr[0] == '\0')
+	while (inputStr.compare("") == 0)
 	{
 		std::cout << "Phone Number: ";
 		getline(std::cin, inputStr);
-		if (inputStr[0] == '\0')
+		if (inputStr.compare("") == 0)
 			std::cout << "Input Can't be empty, please try again\n";
 	}
 	contact.setPhone(inputStr);
-	inputStr[0] = '\0';
+	inputStr = "";
 
-	while (inputStr[0] == '\0')
+	while (inputStr.compare("") == 0)
 	{
 		std::cout << "Darkest secret: ";
 		getline(std::cin, inputStr);
-		if (inputStr[0] == '\0')
+		if (inputStr.compare("") == 0)
 			std::cout << "Input Can't be empty, please try again\n";
 	}
 	contact.setSecret(inputStr);
@@ -71,24 +71,15 @@ static Contact add_contact(void)
 	return (contact);
 }
 
-static void print_str(int len, std::string str)
-{
-	int spaces = 11;
-	int i = -1;
-
-	while (len < --spaces)
-		std::cout << " ";
-	if (len > 10)
+void printStr(std::string str)
 	{
-		while (++i < 9)
-			std::cout << str[i];
-		std::cout << ".";
+		if (str.size() > 10)
+			std::cout << std::right << std::setw(10) << str.substr(0, 9) + '.';
+		else
+			std::cout << std::right << std::setw(10) << str;
 	}
-	else
-		std::cout << str;
-}
 
-static void search_contact(Contact *contacts, int contactCount)
+static void searchContact(Contact *contacts, int contactCount)
 {
 	int j = -1;
 	int len(0);
@@ -106,15 +97,15 @@ static void search_contact(Contact *contacts, int contactCount)
 		std::cout << "|";
 		str = contact.getFirstName();
 		len = str.length();
-		print_str(len, str);
+		printStr(str);
 		std::cout << "|";
 		str = contact.getLastName();
 		len = str.length();
-		print_str(len, str);
+		printStr(str);
 		std::cout << "|";
 		str = contact.getNickname();
 		len = str.length();
-		print_str(len, str);
+		printStr(str);
 		std::cout << "|\n";
 	}
 	if (j == 0)
@@ -168,11 +159,11 @@ int main(void)
 				contactCount = 8;
 				contactAddIndex = -1;
 			}
-			contacts[++contactAddIndex] = add_contact();
+			contacts[++contactAddIndex] = addContact();
 			std::cout << "Waiting for command : ADD, SEARCH or EXIT" << std::endl;
 		}
 		else if (inputStr.compare("SEARCH") == 0)
-			search_contact(contacts, contactCount);
+			searchContact(contacts, contactCount);
 		else if (inputStr.compare("EXIT") == 0)
 		{
 			std::cout << "Bye !\n";
