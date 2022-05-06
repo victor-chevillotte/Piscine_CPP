@@ -6,7 +6,7 @@
 /*   By: vchevill <vchevill@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 10:14:58 by vchevill          #+#    #+#             */
-/*   Updated: 2022/05/06 12:27:35 by vchevill         ###   ########.fr       */
+/*   Updated: 2022/05/06 15:39:30 by vchevill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,51 +19,51 @@ static Contact addContact(void)
 
 	std::cout << "\n ---   ADD CONTACT   ---\n";
 	inputStr = "";
-	while (inputStr.compare("") == 0)
+	while (inputStr.compare("") == 0 && !std::cin.eof())
 	{
 		std::cout << "First Name: ";
 		getline(std::cin, inputStr);
-		if (inputStr.compare("") == 0)
+		if (inputStr.compare("") == 0 && !std::cin.eof())
 			std::cout << "Input Can't be empty, please try again\n";
 	}
 	contact.setFirstName(inputStr);
 	inputStr = "";
 
-	while (inputStr.compare("") == 0)
+	while (inputStr.compare("") == 0 && !std::cin.eof())
 	{
 		std::cout << "Last Name: ";
 		getline(std::cin, inputStr);
-		if (inputStr.compare("") == 0)
+		if (inputStr.compare("") == 0 && !std::cin.eof())
 			std::cout << "Input Can't be empty, please try again\n";
 	}
 	contact.setLastName(inputStr);
 	inputStr = "";
 
-	while (inputStr.compare("") == 0)
+	while (inputStr.compare("") == 0 && !std::cin.eof())
 	{
 		std::cout << "Nickname: ";
 		getline(std::cin, inputStr);
-		if (inputStr.compare("") == 0)
+		if (inputStr.compare("") == 0 && !std::cin.eof())
 			std::cout << "Input Can't be empty, please try again\n";
 	}
 	contact.setNickname(inputStr);
 	inputStr = "";
 
-	while (inputStr.compare("") == 0)
+	while (inputStr.compare("") == 0 && !std::cin.eof())
 	{
 		std::cout << "Phone Number: ";
 		getline(std::cin, inputStr);
-		if (inputStr.compare("") == 0)
+		if (inputStr.compare("") == 0 && !std::cin.eof())
 			std::cout << "Input Can't be empty, please try again\n";
 	}
 	contact.setPhone(inputStr);
 	inputStr = "";
 
-	while (inputStr.compare("") == 0)
+	while (inputStr.compare("") == 0 && !std::cin.eof())
 	{
 		std::cout << "Darkest secret: ";
 		getline(std::cin, inputStr);
-		if (inputStr.compare("") == 0)
+		if (inputStr.compare("") == 0 && !std::cin.eof())
 			std::cout << "Input Can't be empty, please try again\n";
 	}
 	contact.setSecret(inputStr);
