@@ -6,7 +6,7 @@
 #    By: vchevill <vchevill@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 11:38:44 by vchevill          #+#    #+#              #
-#    Updated: 2022/05/06 11:54:47 by vchevill         ###   ########.fr        #
+#    Updated: 2022/05/06 11:56:18 by vchevill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJS	=	$(SRCS:.cpp=.o)
 
 LFLAGS  =   -I $(HEADER)
 
-%.o:		%.cpp $(HEADER)/map.h
+%.o:		%.cpp $(HEADER)/phonebook.h
 	$(CC) $(CFLAGS) $(LFLAGS) -c $< -o $@
 
 all:		$(NAME)
