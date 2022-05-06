@@ -6,7 +6,7 @@
 #    By: vchevill <vchevill@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 11:38:44 by vchevill          #+#    #+#              #
-#    Updated: 2022/05/06 17:02:11 by vchevill         ###   ########.fr        #
+#    Updated: 2022/05/06 17:12:18 by vchevill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJS	=	$(SRCS:.cpp=.o)
 
 LFLAGS  =   -I $(HEADER)
 
-%.o:		%.cpp $(HEADER)/Zombie.h
+%.o:		%.cpp $(HEADER)/Zombie.hpp
 	$(CC) $(CFLAGS) $(LFLAGS) -c $< -o $@
 
 all:		$(NAME)
