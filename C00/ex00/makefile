@@ -6,14 +6,14 @@
 #    By: vchevill <vchevill@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 11:38:24 by vchevill          #+#    #+#              #
-#    Updated: 2022/05/06 11:39:08 by vchevill         ###   ########.fr        #
+#    Updated: 2022/05/06 11:54:51 by vchevill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	megaphone
 SRCS	=	megaphone.cpp
-CC		=	clang++
-CFLAGS	=	-Wall -Wextra -Werror
+CC		=	c++
+CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 OBJS	=	$(SRCS:.cpp=.o)
 
 %.o:		%.cpp

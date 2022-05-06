@@ -6,15 +6,15 @@
 #    By: vchevill <vchevill@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 11:38:44 by vchevill          #+#    #+#              #
-#    Updated: 2022/05/06 11:39:15 by vchevill         ###   ########.fr        #
+#    Updated: 2022/05/06 11:54:47 by vchevill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	phonebook
 SRCS	=	srcs/phonebook.cpp
 HEADER  =   includes
-CC		=	clang++
-CFLAGS	=	-Wall -Wextra -Werror
+CC		=	c++
+CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 OBJS	=	$(SRCS:.cpp=.o)
 
 LFLAGS  =   -I $(HEADER)
