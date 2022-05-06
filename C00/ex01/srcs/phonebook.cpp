@@ -6,7 +6,7 @@
 /*   By: vchevill <vchevill@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 10:14:58 by vchevill          #+#    #+#             */
-/*   Updated: 2022/05/06 11:35:47 by vchevill         ###   ########.fr       */
+/*   Updated: 2022/05/06 11:40:49 by vchevill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,14 @@ static Contact add_contact(void)
 
 static void print_str(int len, std::string str)
 {
-	int sp = 11;
+	int spaces = 11;
+	int i = -1;
 
-	while (len < --sp)
+	while (len < --spaces)
 		std::cout << " ";
 	if (len > 10)
 	{
-		for (std::string::size_type i = 0; i < 9; ++i)
+		while (++i < 9)
 			std::cout << str[i];
 		std::cout << ".";
 	}

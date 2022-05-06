@@ -6,7 +6,7 @@
 /*   By: vchevill <vchevill@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 10:15:05 by vchevill          #+#    #+#             */
-/*   Updated: 2022/05/06 11:20:39 by vchevill         ###   ########.fr       */
+/*   Updated: 2022/05/06 11:37:47 by vchevill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ class Contact
 		void setSecret(std::string value);
 
 	private: 
-		std::string first_name, last_name, nickname, 
-		phone_number, darkest_secret;
+		std::string first_name, last_name, nickname, phone_number, darkest_secret;
 };
 
 inline void Contact::setFirstName(std::string value)
