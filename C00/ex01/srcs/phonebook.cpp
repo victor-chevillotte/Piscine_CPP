@@ -6,7 +6,7 @@
 /*   By: vchevill <vchevill@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 10:14:58 by vchevill          #+#    #+#             */
-/*   Updated: 2022/05/06 15:39:30 by vchevill         ###   ########.fr       */
+/*   Updated: 2022/05/09 14:19:03 by vchevill         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,12 +153,10 @@ int main(void)
 	{
 		if (inputStr.compare("ADD") == 0)
 		{
-			contactCount++;
+			if (contactCount < 8)
+				contactCount++;
 			if (contactAddIndex >= 7)
-			{
-				contactCount = 8;
 				contactAddIndex = -1;
-			}
 			contacts[++contactAddIndex] = addContact();
 			std::cout << "Waiting for command : ADD, SEARCH or EXIT" << std::endl;
 		}
