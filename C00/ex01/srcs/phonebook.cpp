@@ -6,7 +6,7 @@
 /*   By: vchevill <vchevill@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 10:14:58 by vchevill          #+#    #+#             */
-/*   Updated: 2022/05/11 10:21:50 by vchevill         ###   ########.fr       */
+/*   Updated: 2022/05/11 10:33:43 by vchevill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,10 +115,13 @@ static void searchContact(Contact *contacts, int contactCount)
 	std::cin >> j;
 	if (std::cin.fail())
 	{
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		std::cout << "Your selection is not an int.\n\n";
-		std::cout << "Waiting for command : ADD, SEARCH or EXIT" << std::endl;
+		if (!std::cin.eof())
+		{
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Your selection is not an int.\n\n";
+			std::cout << "Waiting for command : ADD, SEARCH or EXIT" << std::endl;
+		}
 	}
 	else if (j >= contactCount || j < 0)
 		std::cout << "Contact at index " << j << " does not exist.\n\n";
@@ -147,7 +150,7 @@ int main(void)
 	int contactCount = 0;
 
 	std::cout << "Waiting for command : ADD, SEARCH or EXIT" << std::endl;
-	while (getline(std::cin, inputStr))
+	while (getline(std::cin, inputStr) && !std::cin.eof())
 	{
 		if (inputStr.compare("ADD") == 0)
 		{
@@ -156,7 +159,8 @@ int main(void)
 			if (contactAddIndex >= 7)
 				contactAddIndex = -1;
 			contacts[++contactAddIndex] = addContact();
-			std::cout << "Waiting for command : ADD, SEARCH or EXIT" << std::endl;
+			if (!std::cin.eof())
+				std::cout << "Waiting for command : ADD, SEARCH or EXIT" << std::endl;
 		}
 		else if (inputStr.compare("SEARCH") == 0)
 			searchContact(contacts, contactCount);
