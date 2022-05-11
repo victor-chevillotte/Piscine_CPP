@@ -6,7 +6,7 @@
 /*   By: vchevill <vchevill@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 10:14:58 by vchevill          #+#    #+#             */
-/*   Updated: 2022/05/09 14:19:03 by vchevill         ###   ########lyon.fr   */
+/*   Updated: 2022/05/11 10:21:50 by vchevill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,12 @@ static Contact addContact(void)
 }
 
 void printStr(std::string str)
-	{
-		if (str.size() > 10)
-			std::cout << std::right << std::setw(10) << str.substr(0, 9) + '.';
-		else
-			std::cout << std::right << std::setw(10) << str;
-	}
+{
+	if (str.size() > 10)
+		std::cout << std::right << std::setw(10) << str.substr(0, 9) + '.';
+	else
+		std::cout << std::right << std::setw(10) << str;
+}
 
 static void searchContact(Contact *contacts, int contactCount)
 {
@@ -109,35 +109,33 @@ static void searchContact(Contact *contacts, int contactCount)
 		std::cout << "|\n";
 	}
 	if (j == 0)
-		std::cout << "|          |          |          |          |\n---------------------------------------------\n";
+		std::cout << "|          |          |          |          |\n";
+	std::cout << "---------------------------------------------\n\n";
+	std::cout << "Please select an index : ";
+	std::cin >> j;
+	if (std::cin.fail())
+	{
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Your selection is not an int.\n\n";
+		std::cout << "Waiting for command : ADD, SEARCH or EXIT" << std::endl;
+	}
+	else if (j >= contactCount || j < 0)
+		std::cout << "Contact at index " << j << " does not exist.\n\n";
 	else
 	{
-		std::cout << "---------------------------------------------\n\n";
-		std::cout << "Please select an index : ";
-		std::cin >> j;
-		if (std::cin.fail())
-		{
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "Your selection is not an int.\n\n";
-		}
-		else if (j >= contactCount || j < 0)
-			std::cout << "Contact at index " << j << " does not exist.\n\n";
-		else
-		{
-			contact = contacts[j];
-			std::cout << "Here is contact at index " << j << "\n\n";
-			str = contact.getFirstName();
-			std::cout << "First Name : " << str << "\n";
-			str = contact.getLastName();
-			std::cout << "Last Name : " << str << "\n";
-			str = contact.getNickname();
-			std::cout << "Nickname : " << str << "\n";
-			str = contact.getPhone();
-			std::cout << "Phone number : " << str << "\n";
-			str = contact.getSecret();
-			std::cout << "Darkest secret : " << str << "\n";
-		}
+		contact = contacts[j];
+		std::cout << "Here is contact at index " << j << "\n\n";
+		str = contact.getFirstName();
+		std::cout << "First Name : " << str << "\n";
+		str = contact.getLastName();
+		std::cout << "Last Name : " << str << "\n";
+		str = contact.getNickname();
+		std::cout << "Nickname : " << str << "\n";
+		str = contact.getPhone();
+		std::cout << "Phone number : " << str << "\n";
+		str = contact.getSecret();
+		std::cout << "Darkest secret : " << str << "\n\n";
 	}
 }
 
